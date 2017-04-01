@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div id="box">
+			<input v-on:click="show()" type="button" name="" id="" value="点我" />
+	</div>
+
+	<script type="text/javascript">
+		 new Vue({
+                el:'#box',
+                data:{ //数据
+                    arr:['apple','banana','orange','pear'],
+                    json:{a:'apple',b:'banana',c:'orange'}
+                },
+                methods:{
+                    show:function(){
+//                      this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+//                          wd:'a'
+//                      },{
+//                          jsonp:'cb'
+//                      }).then(function(res){
+//                          alert(res.data.s);
+//                      },function(res){
+//                          alert(res.status);
+//                      });
+//                 	                                      	
+                       this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+                       			{wd:'bue'},
+                       			{jsonp:'cb'}).
+                       			then(function(res){console.log(res.data.s)},
+                       			function(res){});
+                    }
+                }
+            });
+
+	</script>
+</body>
+</html>
